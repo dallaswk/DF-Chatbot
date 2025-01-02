@@ -59,8 +59,6 @@ Abre tu navegador y visita `http://localhost:3000`. Verás una interfaz simple d
 
 ## 📂 Estructura del proyecto
 
-## 📂 Estructura del proyecto
-
 ```plaintext
 ├── public/
 │   └── index.html      # Interfaz del chatbot
@@ -68,7 +66,7 @@ Abre tu navegador y visita `http://localhost:3000`. Verás una interfaz simple d
 ├── .env                # Configuración del entorno
 ├── dialogflow-key.json # Archivo de credenciales (no incluido en el repositorio)
 └── package.json        # Dependencias y configuración del proyecto
-
+```
 ---
 
 ## 🧩 Tecnologías utilizadas
