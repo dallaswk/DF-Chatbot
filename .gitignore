@@ -1,0 +1,7 @@
+# Archivos de configuración de entorno
+.env
+dialogflow-key.json
+
+# Archivos generados por npm
+node_modules/
+package-lock.json

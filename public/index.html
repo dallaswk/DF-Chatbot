@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot con Dialogflow</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; }
+        #chat { width: 400px; height: 500px; border: 1px solid #ccc; overflow-y: scroll; margin: 20px; padding: 10px; }
+        #input { width: 400px; padding: 10px; }
+    </style>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <h1>🤖 Chatbot Dialogflow</h1>
+    <div id="chat"></div>
+    <input type="text" id="input" placeholder="Escribe un mensaje...">
+    <script>
+        const socket = io();
+        const chat = document.getElementById('chat');
+        const input = document.getElementById('input');
+
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const message = input.value;
+                chat.innerHTML += `<p><strong>Tú:</strong> ${message}</p>`;
+                socket.emit('message', message);
+                input.value = '';
+            }
+        });
+
+        socket.on('response', (response) => {
+            chat.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
+            chat.scrollTop = chat.scrollHeight;
+        });
+    </script>
+</body>
+</html>
